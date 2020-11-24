@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mappers.social">
+
+
+	<!-- social list -->
+	<select id="social" resultType="com.web.gallery.vo.SocialVO">
+		select * from g_social
+	</select>
+
+	<!-- social view -->
+	<select id="socialview" resultType="com.web.gallery.vo.SocialVO" parameterType="string">
+		select * from g_social where social_name = #{social_name}
+	</select>
+
+	<!-- social link update -->
+	<update id="update" parameterType="com.web.gallery.vo.SocialVO">
+		update g_social set
+		social_link = #{social_link} where social_name =
+		#{social_name};
+	</update>
+
+</mapper>

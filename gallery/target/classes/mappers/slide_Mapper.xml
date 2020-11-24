@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mappers.slide">
+
+
+	<!-- slide list -->
+	<select id="slidelist" resultType="com.web.gallery.vo.SlideVO">
+		select * from g_slide
+	</select>
+
+	<!-- slide insert -->
+	<insert id="insert" parameterType="com.web.gallery.vo.SlideVO">
+		INSERT INTO g_slide (slide_img, slide_path) VALUE (#{slide_img}, #{slide_path})
+	</insert>
+
+	<!-- slide update -->
+	<update id="update" parameterType="com.web.gallery.vo.SlideVO">
+		UPDATE g_slide SET slide_img =
+		#{slide_img}, slide_path = #{slide_path} WHERE NO = #{no}
+	</update>
+
+	<!-- slide delete -->
+	<update id="delete" parameterType="int">
+		DELETE FROM g_slide WHERE NO =
+		#{no}
+	</update>
+
+</mapper>

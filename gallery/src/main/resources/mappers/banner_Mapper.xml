@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mappers.Banner">
+
+
+	<!-- Banner list -->
+	<select id="BannerList" resultType="com.web.gallery.vo.BannerVO">
+		select * from g_banner
+	</select>
+
+	<!-- page_banner -->
+	<select id="page_banner"
+		resultType="com.web.gallery.vo.BannerVO" parameterType="string">
+		select * from g_banner where banner_name = #{banner_naem}
+	</select>
+
+	<!-- Banner view -->
+	<select id="bannerview" resultType="com.web.gallery.vo.BannerVO"
+		parameterType="string">
+		select * from g_banner where banner_name =
+		#{banner_name}
+	</select>
+
+	<!-- Banner img update -->
+	<update id="update" parameterType="com.web.gallery.vo.BannerVO">
+		update g_banner set
+		banner_img
+		= #{banner_img}, banner_path = #{banner_path} where banner_name =
+		#{banner_name}
+	</update>
+
+</mapper>

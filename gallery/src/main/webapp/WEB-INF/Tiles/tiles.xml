@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+  "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<!-- tiles 적용 -->
+	<definition name="tilesLayout"
+		template="/WEB-INF/views/Tiles/layout.jsp">
+		<put-attribute name="siteTop"
+			value="/WEB-INF/views/Tiles/header.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="siteBottom"
+			value="/WEB-INF/views/Tiles/footer.jsp" />
+	</definition>
+
+	<definition name="*.tiles" extends="tilesLayout">
+		<put-attribute name="content"
+			value="/WEB-INF/views/{1}.jsp" />
+	</definition>
+
+	<definition name="*/*.tiles" extends="tilesLayout">
+		<put-attribute name="content"
+			value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+
+
+	<!-- tiles admin -->
+	<definition name="admLayout"
+		template="/WEB-INF/views/adm/Tiles/layout.jsp">
+		<put-attribute name="siteaside"
+			value="/WEB-INF/views/adm/Tiles/aside.jsp" />
+		<put-attribute name="siteheader"
+			value="/WEB-INF/views/adm/Tiles/header.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="sitefooter"
+			value="/WEB-INF/views/adm/Tiles/footer.jsp" />
+	</definition>
+
+	<definition name="*.adm" extends="admLayout">
+		<put-attribute name="content"
+			value="/WEB-INF/views/adm/{1}.jsp" />
+	</definition>
+
+	<definition name="*/*.adm" extends="admLayout">
+		<put-attribute name="content"
+			value="/WEB-INF/views/adm/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="*/*/*.adm" extends="admLayout">
+		<put-attribute name="content"
+			value="/WEB-INF/views/adm/{1}/{2}/{3}.jsp" />
+	</definition>
+
+
+</tiles-definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mappers.FAQ">
+
+
+	<!-- FAQ list -->
+	<select id="FAQ" resultType="com.web.gallery.vo.FAQVO">
+		SELECT * FROM g_faq
+	</select>
+
+	<!-- FAQ 내용 -->
+	<select id="FAQview" parameterType="int"
+		resultType="com.web.gallery.vo.FAQVO">
+		SELECT * FROM g_faq WHERE no = #{no}
+	</select>
+
+	<!-- FAQ insert -->
+	<insert id="insert" parameterType="com.web.gallery.vo.FAQVO">
+		insert into g_faq (faq_title,
+		faq_contents) value (#{faq_title}, #{faq_contents});
+	</insert>
+
+	<!-- FAQ update -->
+	<update id="update" parameterType="com.web.gallery.vo.FAQVO">
+		update g_faq set
+		faq_title =
+		#{faq_title}, faq_contents =
+		#{faq_contents} where no = #{no};
+	</update>
+
+	<!-- FAQ delete -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM g_faq WHERE no =
+		#{no}
+	</delete>
+
+</mapper>
