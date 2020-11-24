@@ -20,10 +20,10 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://gallerydb.cdqjlid13hgw.ap-northeast-2.rds.amazonaws.com/gallery">
+			value="jdbc:mysql:/">
 		</property>
 		<property name="username" value="root"></property>
-		<property name="password" value="hsh910223"></property>
+		<property name="password" value=""></property>
 	</bean>
 
 	<!-- mybatis SqlSessionFactoryBean <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
