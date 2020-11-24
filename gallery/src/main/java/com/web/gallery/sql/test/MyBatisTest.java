@@ -18,7 +18,6 @@ public class MyBatisTest
 	@Inject
 	private SqlSession sql;
 
-	private static String namespace = "com.web.mappers.profile";
     @Test
     public void testFactory(){
         System.out.println("\n >>>>>>>>>> sqlFactory 출력 : "+sqlFactory);
@@ -35,13 +34,6 @@ public class MyBatisTest
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    
-    @Test
-    public void testselect(){
-        sql.update(namespace+"update");
-        sql.selectList(namespace+"view");
-        System.out.println(namespace);
     }
     
     

@@ -7,30 +7,34 @@
 <mapper namespace="com.web.mappers.gallery">
 
 	<!-- 게시물 총 갯수 -->
-	<select id="gallerycount"
-		resultType="int">
-		select count(no) from g_gallery
+	<select id="gallerycount" resultType="int">
+		select count(no) from
+		g_gallery
 	</select>
-	
-		<!-- 게시물 총 갯수 -->
+
+	<!-- 게시물 총 갯수 -->
 	<select id="gallerySearchcount" parameterType="hashMap"
 		resultType="int">
 		select count(no) from g_gallery
 		<if test="searchType != ''">
-		where gallery_title = #{searchType}
+			where gallery_title = #{searchType}
 		</if>
 	</select>
-	
-		<!-- 게시물 주제별 총 갯수 -->
-	<select id="gallerTitleycount"
-		resultType="int" parameterType="string">
-		select count(no) from g_gallery where gallery_title = #{gallery_title}
+
+	<!-- 게시물 주제별 총 갯수 -->
+	<select id="gallerTitleycount" resultType="int"
+		parameterType="string">
+		select count(no) from g_gallery where gallery_title =
+		#{gallery_title}
 	</select>
-	
+
 	<!-- Gallery List -->
 	<select id="galleryList" parameterType="hashMap"
 		resultType="com.web.gallery.vo.GalleryVO">
-		select * from g_gallery 
+		select * from g_gallery
+		<if test="searchType != ''">
+			where gallery_title = #{searchType}
+		</if>
 		order by no desc limit #{displayPost}, #{postNum}
 	</select>
 
@@ -45,7 +49,7 @@
 		resultType="com.web.gallery.vo.GalleryVO">
 		SELECT * FROM g_gallery ORDER BY RAND() LIMIT 4
 	</select>
-	
+
 	<!-- Gallery insert -->
 	<insert id="insert" parameterType="com.web.gallery.vo.GalleryVO">
 		insert into g_gallery
@@ -56,7 +60,9 @@
 
 	<!-- Gallery update -->
 	<update id="update" parameterType="com.web.gallery.vo.GalleryVO">
-		update g_gallery set gallery_img = #{gallery_img}, gallery_path = #{gallery_path} where no = #{no}
+		update g_gallery set
+		gallery_img = #{gallery_img}, gallery_path = #{gallery_path} where no
+		= #{no}
 	</update>
 
 	<!-- Gallery delete -->
