@@ -74,15 +74,15 @@ public class Page {
 	private void dataCalc() {
 
 		// 마지막 번호
-		endPageNum = (int) (Math.ceil( (double)num /  (double)pageNumCnt) * pageNumCnt);
+		endPageNum = (int) (Math.ceil((double) num / (double) pageNumCnt) * pageNumCnt);
 		System.out.println(num);
 		System.out.println(endPageNum);
 
 		// 시작 번호
 		startPageNum = endPageNum - (pageNumCnt - 1);
-		System.out.println(endPageNum +"- ("+ pageNumCnt+"1)" );
+		System.out.println(endPageNum + "- (" + pageNumCnt + "1)");
 		System.out.println(startPageNum);
-		
+
 		// 마지막 번호 재계산
 		int endPageNum_tmp = (int) (Math.ceil((double) count / (double) postNum));
 		System.out.println(endPageNum_tmp);
@@ -125,25 +125,24 @@ public class Page {
 		displayPost = (num - 1) * postNum;
 
 	}
-	
+
 	public String getSearchTypeKeyword() {
-		 
-		 if(searchType.equals("")) {
-		  return ""; 
-		 } else {
-		  return "&searchType=" + searchType; 
-		 }
+
+		if (searchType.equals("")) {
+			return "";
+		} else {
+			return "&searchType=" + searchType;
+		}
 	}
 
-		private String searchType;
+	private String searchType;
 
-		public void setSearchType(String searchType) {
-		 this.searchType = searchType;  
-		}
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
 
-		public String getSearchType() {
-		 return searchType;
-		} 
-
+	public String getSearchType() {
+		return searchType;
+	}
 
 }
